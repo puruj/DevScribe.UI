@@ -17,7 +17,7 @@ export class AddBlogpostComponent {
       description: '',
       urlHandle: '',
       content: '',
-      featuredUImageUrl: '',
+      featuredImageUrl: '',
       author: '',
       isVisible: true,
       publishedDate: new Date()
