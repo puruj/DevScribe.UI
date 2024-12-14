@@ -1,14 +1,15 @@
 <div class="container">
     <h1 class="mt-3">Add BlogPost</h1>
 
-    <form>
+    <form #form="ngForm" (ngSubmit)="onFormSubmit()">
         <div class="mt-2 mb-5">
             <div class="mt-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text"
                 id="title"
                 name="title"
-                class="form-control">
+                class="form-control"
+                [(ngModel)]="model.title">
             </div>
         </div>
 
@@ -18,7 +19,8 @@
                 <input type="text"
                 id="urlHandle"
                 name="urlHandle"
-                class="form-control">
+                class="form-control"
+                [(ngModel)]="model.urlHandle">
             </div>
         </div>
 
@@ -28,7 +30,8 @@
                 <input type="text"
                 id="shortDescription"
                 name="shortDescription"
-                class="form-control">
+                class="form-control"
+                [(ngModel)]="model.shortDescription">
             </div>
         </div>
 
@@ -36,7 +39,8 @@
             <div class="mt-3">
                 <label for="content" class="form-label">Content</label>
                 <textarea name="content" id="content"
-                class="form-control"></textarea>
+                class="form-control"
+                [(ngModel)]="model.content"></textarea>
             </div>
         </div>
 
@@ -46,7 +50,8 @@
                 <input type="text"
                 id="featuredImageUrl"
                 name="featuredImageUrl"
-                class="form-control">
+                class="form-control"
+                [(ngModel)]="model.featuredImageUrl">
             </div>
         </div>
 
@@ -56,7 +61,10 @@
                 <input type="date"
                 id="publisheDate"
                 name="publisheDate"
-                class="form-control">
+                class="form-control"
+                value="{{model.publishedDate}}"
+                [ngModel]="model.publishedDate | date: 'yyy-MM-dd'"
+                (ngModelChange)="model.publishedDate = $event">
             </div>
         </div>
 
@@ -66,12 +74,15 @@
                 <input type="text"
                 id="author"
                 name="author"
-                class="form-control">
+                class="form-control"
+                [(ngModel)]="model.author">
             </div>
         </div>
 
         <div class="form-check mt-3">
-            <input class="form-check-input" type="checkbox" id="isVisible">
+            <input class="form-check-input" type="checkbox" id="isVisible"
+            [(ngModel)]="model.isVisible"
+            name="isVisible">
             <label class="form-check-label" for="isVisible">
                 Is Visible?
             </label>
